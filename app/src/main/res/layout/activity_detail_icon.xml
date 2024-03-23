@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.activity.SecondActivity">
+    tools:context=".view.activity.DetailIconActivity">
 
     <include android:id="@+id/actionBar" layout="@layout/action_bar"/>
     <androidx.viewpager2.widget.ViewPager2

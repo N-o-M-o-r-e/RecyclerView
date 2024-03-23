@@ -6,17 +6,16 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.project.tathanhson.recyclerview.MyApplication;
-import com.project.tathanhson.recyclerview.databinding.ActivitySecondBinding;
+import com.project.tathanhson.recyclerview.databinding.ActivityDetailIconBinding;
 import com.project.tathanhson.recyclerview.view.adapter.DetaiIconAdapter;
 
-public class SecondActivity extends AppCompatActivity {
-    private ActivitySecondBinding binding;
-
+public class DetailIconActivity extends AppCompatActivity {
+    private ActivityDetailIconBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySecondBinding.inflate(getLayoutInflater());
+        binding = ActivityDetailIconBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
 
