@@ -2,8 +2,6 @@ package com.project.tathanhson.recyclerview;
 
 import android.app.Application;
 
-import com.project.tathanhson.recyclerview.model.Storage;
-
 public class MyApplication extends Application {
     private static MyApplication instance;
     private Storage storage;
