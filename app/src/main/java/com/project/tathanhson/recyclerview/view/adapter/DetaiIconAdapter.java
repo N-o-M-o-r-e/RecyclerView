@@ -38,8 +38,6 @@ public class DetaiIconAdapter extends RecyclerView.Adapter<DetaiIconAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         IconModel data = list.get(position);
         Log.e("AAAAAA", "data in position = "+position );
-        Log.e("AAAAAA", "data in position = "+data.getContent() );
-        Log.e("AAAAAA", "data in position = "+data.getBitmapImg() );
 
         holder.tvIconDetail.setText(data.getContent());
         holder.ivIconDetail.setImageBitmap(data.getBitmapImg());

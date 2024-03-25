@@ -26,7 +26,6 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconHolder> {
     private List<IconModel> listStory;
     MutableLiveData<IconModel> storyLivaData = new MutableLiveData<>();
 
-
     public MutableLiveData<IconModel> getStoryLivaData() {
         return storyLivaData;
     }
@@ -36,9 +35,6 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconHolder> {
         this.listStory = listStory;
     }
 
-    /**
-     * Từ item_view trong file res/layout, ánh xạ thành IconHolder (inflate)
-     */
     @NonNull
     @Override
     public IconHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -46,9 +42,6 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconHolder> {
         return new IconHolder(view);
     }
 
-    /**
-     * Dựa cào số lượng item data , truyền dữ liệu tương ứng  của từng data vào IconHolder
-     */
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull IconHolder holder, int position) {
@@ -56,12 +49,12 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconHolder> {
         holder.tvIconName.setText(data.getContent());
         Bitmap bitmap = data.getBitmapImg();
         GlideHelper.loadBitmap(context, bitmap, holder.imageIcon);
+
         holder.tvIconName.setTag(data);
         if (data.isSelected()) {
             holder.backgroundView.setBackgroundResource(R.drawable.bg_selected);
         } else {
             holder.backgroundView.setBackgroundResource(R.drawable.bg_unselected);
-
         }
     }
 
@@ -101,8 +94,10 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconHolder> {
 
     public static class GlideHelper {
         public static void loadBitmap(Context context, Bitmap bitmap, ImageView imageView) {
-            RequestOptions requestOptions = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE) // Disable disk cache to load bitmap directly
-                    .skipMemoryCache(true); // Disable memory cache
+            RequestOptions requestOptions = new RequestOptions()
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true);
+
             Glide.with(context).asBitmap().load(bitmap).apply(requestOptions).into(imageView);
         }
     }

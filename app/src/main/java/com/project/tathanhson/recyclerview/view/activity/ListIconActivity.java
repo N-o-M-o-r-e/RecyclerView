@@ -32,12 +32,12 @@ public class ListIconActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        viewModel = new ViewModelProvider(this).get(MainViewModel.class); //khởi tạo viewModel
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         viewModel.readStoryFile(getAssets());
 
-        listItem = viewModel.getListStory(); //từ viewmodel lấy ra danh sách
-        adapter = new IconAdapter(this, listItem); // đổ dữ liệu vào Adapter cần context và list
-        binding.rcvIcon.setAdapter(adapter); // setAdapter cho recyclerView
+        listItem = viewModel.getListStory();
+        adapter = new IconAdapter(this, listItem);
+        binding.rcvIcon.setAdapter(adapter);
 
         adapter.getStoryLivaData().observe(this, storyModel -> {
             if (storyModel == null) return;
